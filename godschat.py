@@ -20,7 +20,7 @@ def bye():
     <q>uit
     <n>ew session
      ''')
-    if 'q' in input('Time to go? ').lower():
+    if 'q' in input('? ').lower():
         Heart = False
 
 
