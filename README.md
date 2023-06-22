@@ -9,9 +9,3 @@ once you have an openai account and are logged in, you can find the option for A
 get simpleaichat installed..
 
 done! have fun!
-
-if you share your version, remember to write the file you keep your key in (ie. .env in my script) in a .gitignore file. 
-
-putting .* in the .gitignore file protects all dot files from uploading which can be good. 
-
-also add session and log.txt to the .gitignore file

@@ -1,0 +1,5 @@
+.env
+.vscode
+log.txt
+session
+__pycache__
