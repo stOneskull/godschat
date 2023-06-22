@@ -51,12 +51,12 @@ def chat(god, description):
             return bye
 
 
-def character(chattype):
+def character(godtype):
     clr()
 
-    print(f"\nWho is your choice of {chattype}..\n")
+    print(f"\nWho is your choice of {godtype}..\n")
 
-    menu = {i: civ for i, civ in enumerate(allgods[chattype])}
+    menu = {i: civ for i, civ in enumerate(allgods[godtype])}
 
     for i, civ in menu.items():
         print(i, civ)
@@ -65,13 +65,13 @@ def character(chattype):
     civ = menu[civnum]
 
     print(f"\nWho is your choice of character..\n")
-    civgods = {i: god for i, god in enumerate(allgods[chattype][civ])}
+    civgods = {i: god for i, god in enumerate(allgods[godtype][civ])}
     for i, god in civgods.items():
         print(i, god)
 
     godnum = int(input("\nEnter number: "))
     god = civgods[godnum]
-    description = allgods[chattype][civ][god]
+    description = allgods[godtype][civ][god]
     #print(f"\nOk, let's talk to {god}, {description}")
 
     return chat(god, description)
@@ -92,11 +92,11 @@ def menu():
         return bye
     
     if choose == 'r':
-        chattype = pick(categories)
+        godtype = pick(categories)
         print()
-        civtype = pick(list(allgods[chattype].keys()))
-        god = pick(list(allgods[chattype][civtype].keys()))
-        description = allgods[chattype][civtype][god]
+        civtype = pick(list(allgods[godtype].keys()))
+        god = pick(list(allgods[godtype][civtype].keys()))
+        description = allgods[godtype][civtype][god]
         return chat(god, description)
 
     if choose == 'u':
@@ -104,8 +104,8 @@ def menu():
         description = input('Give a short description or extra notes: ')
         return chat(god, description)
     
-    chattype = choicemenu[int(choose)]
-    return character(chattype)
+    godtype = choicemenu[int(choose)]
+    return character(godtype)
 
 
 def setup():
