@@ -1,6 +1,6 @@
 from random import choice as pick
 from simpleaichat import AIChat as ai
-from godsdata import all
+from godsdata import allgods
 
 
 Heart = True

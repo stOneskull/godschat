@@ -1,4 +1,4 @@
-all = dict(
+allgods = dict(
     gods = dict(
     norse = {
         "Odin": "The god of wisdom, war, and death.",
