@@ -9,3 +9,5 @@ once you have an openai account and are logged in, you can find the option for A
 get simpleaichat installed..
 
 done! have fun!
+
+ps. i used the chat to generate the data dictionaries :P easy to add to it!
