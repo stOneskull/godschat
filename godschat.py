@@ -93,7 +93,6 @@ def menu():
     
     if choose == 'r':
         godtype = pick(categories)
-        print()
         civtype = pick(list(allgods[godtype].keys()))
         god = pick(list(allgods[godtype][civtype].keys()))
         description = allgods[godtype][civtype][god]
