@@ -47,8 +47,9 @@ def chat(god, description):
         with open('log.txt', 'a') as logger:
             logger.write(f'YOU: {prompt}\n')
             logger.write(pretty)
-        if 'quitz' in prompt.lower():
-            return bye
+            if 'quitz' in prompt.lower():
+                logger.write('\n\n')
+                return bye
 
 
 def character(godtype):
