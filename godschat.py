@@ -47,9 +47,10 @@ def chat(god, description):
         with open('log.txt', 'a') as logger:
             logger.write(f'YOU: {prompt}\n')
             logger.write(pretty)
-            if 'quitz' in prompt.lower():
+        if 'quitz' in prompt.lower():
+            with open('log.txt', 'a') as logger:
                 logger.write('\n\n')
-                return bye
+            return bye
 
 
 def character(godtype):
@@ -84,14 +85,12 @@ def menu():
     clr()
     print("Choose your character type..\n")
     categories = list(allgods.keys())
-    choicemenu = {}
     for i, category in enumerate(categories):
-        choicemenu[i] = category
         print(i, category)
     print('r', 'random choice')
     print('u', 'unique choice')
     print('x', 'exit')
-    
+
     choose = input("\nEnter a choice: ")
 
     if choose == 'x':
@@ -109,7 +108,7 @@ def menu():
         description = input('Give a short description or extra notes: ')
         return chat(god, description)
     
-    godtype = choicemenu[int(choose)]
+    godtype = categories[int(choose)]
     return character(godtype)
 
 
