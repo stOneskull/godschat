@@ -196,4 +196,46 @@ dark_horse = {
 },
 
 ),
+
+philosophers = dict(
+    lsd = {
+    "Robert Anton Wilson": "Robert Anton Wilson was an American author, futurist, and self-described agnostic mystic.",
+    "Timothy Leary": "Timothy Leary was an American psychologist and writer, known for his advocacy of psychedelic drugs.",
+    "Terence McKenna": "Terence McKenna was an American ethnobotanist, philosopher, and author, known for his work on the use of psychoactive plants.",
+    "Ram Dass": "Ram Dass was an American spiritual teacher, psychologist, and author, known for his work on consciousness and spiritual practices.",
+    "Aldous Huxley": "Aldous Huxley was an English writer and philosopher, known for his work on the use of psychedelic drugs and his dystopian novel 'Brave New World'.",
+    "Alex Grey": "Alex Grey is an American artist and writer, known for his psychedelic artwork and his contributions to the study of consciousness.",
+    "David Nichols": "David Nichols is an American pharmacologist and chemist, known for his research on the effects of psychedelic drugs on the brain.",
+    "Rick Strassman": "Rick Strassman is an American psychiatrist and author, known for his research on the use of DMT as a psychedelic drug.",
+    "Stanislav Grof": "Stanislav Grof is a Czech psychiatrist and author, known for his work on transpersonal psychology and the therapeutic use of LSD.",
+    "Jeremy Narby": "Jeremy Narby is a Swiss anthropologist and author, known for his work on the shamanic use of ayahuasca and the study of indigenous knowledge systems."
+},
+
+ancient = {
+    "Plato": "Plato was a Greek philosopher and student of Socrates. He founded the Academy in Athens and wrote many philosophical dialogues.",
+    "Aristotle": "Aristotle was a Greek philosopher and student of Plato. He wrote extensively on a range of topics, including ethics, politics, and metaphysics.",
+    "Epicurus": "Epicurus was a Greek philosopher who founded the school of philosophy known as Epicureanism. He believed that the highest good was the pursuit of pleasure and the avoidance of pain.",
+    "Seneca": "Seneca was a Roman philosopher and statesman. He wrote extensively on ethics, politics, and natural phenomena, and is known for his stoic philosophy.",
+    "Lucretius": "Lucretius was a Roman poet and philosopher. He is best known for his epic poem 'De Rerum Natura', which expounds upon Epicurean philosophy.",
+    "Plotinus": "Plotinus was a Roman philosopher and founder of Neoplatonism. He believed in the existence of a transcendent, all-encompassing reality.",
+    "Zhuangzi": "Zhuangzi was a Chinese philosopher and writer. He is known for his Taoist philosophy and his collection of writings known as the 'Zhuangzi'.",
+    "Confucius": "Confucius was a Chinese philosopher and teacher. He founded the school of thought known as Confucianism, which emphasizes moral values and social order.",
+    "Laozi": "Laozi was a Chinese philosopher and writer. He is known for his Taoist philosophy and his work 'Tao Te Ching', which emphasizes the importance of humility and simplicity.",
+    "Patanjali": "Patanjali was an Indian philosopher and scholar. He is known for his compilation of the Yoga Sutras, a seminal text on the practice of yoga and meditation."
+},
+
+modern = {
+    "Friedrich Nietzsche": "Friedrich Nietzsche was a German philosopher, cultural critic, and poet. He wrote extensively on morality, religion, and the nature of human existence.",
+    "Martin Heidegger": "Martin Heidegger was a German philosopher and one of the most important figures in 20th-century philosophy. He wrote extensively on ontology, existentialism, and phenomenology.",
+    "Jean-Paul Sartre": "Jean-Paul Sartre was a French philosopher, playwright, and novelist. He is known for his work on existentialism, freedom, and the human condition.",
+    "Simone De Beauvoir": "Simone de Beauvoir was a French writer and philosopher. She is known for her work on feminism, existentialism, and the nature of womanhood.",
+    "Jacques Derrida": "Jacques Derrida was a French philosopher and one of the most important figures in postmodern philosophy. He wrote extensively on deconstruction, language, and meaning.",
+    "Michel Foucault": "Michel Foucault was a French philosopher, social theorist, and historian of ideas. He is known for his work on power, knowledge, and social institutions.",
+    "Gilles Deleuze": "Gilles Deleuze was a French philosopher and one of the most important figures in contemporary philosophy. He wrote extensively on ontology, metaphysics, and the nature of desire.",
+    "Judith Butler": "Judith Butler is an American philosopher and gender theorist. She is known for her work on feminist theory, queer theory, and the politics of identity.",
+    "Slavoj Zizek": "Slavoj Zizek is a Slovenian philosopher, cultural critic, and psychoanalytic theorist. He is known for his provocative and controversial work on ideology, politics, and culture.",
+    "Cornel West": "Cornel West is an American philosopher, political activist, and public intellectual. He is known for his work on race, democracy, and social justice."
+},
+
+),
 )
