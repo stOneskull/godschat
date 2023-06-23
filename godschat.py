@@ -57,17 +57,19 @@ def character(godtype):
 
     print(f"\nWho is your choice of {godtype}..\n")
 
-    menu = {i: civ for i, civ in enumerate(allgods[godtype])}
-
-    for i, civ in menu.items():
+    civs = {}
+    for i, civ in enumerate(allgods[godtype]):
+        civs[i] = civ
         print(i, civ)
 
     civnum = int(input("\nEnter number: "))
-    civ = menu[civnum]
+    civ = civs[civnum]
 
     print(f"\nWho is your choice of character..\n")
-    civgods = {i: god for i, god in enumerate(allgods[godtype][civ])}
-    for i, god in civgods.items():
+
+    civgods = {}
+    for i, god in enumerate(allgods[godtype][civ]):
+        civgods[i] = god
         print(i, god)
 
     godnum = int(input("\nEnter number: "))
