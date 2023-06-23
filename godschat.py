@@ -1,3 +1,4 @@
+import pickle
 from random import choice as pick
 from simpleaichat import AIChat as ai
 from godsdata import allgods
@@ -8,6 +9,14 @@ Heart = True
 
 with open(".env") as key:
     openapi_key = key.readline().strip()
+
+
+try:
+    with open('usergods', 'rb') as jar:
+        usergods = pickle.load(jar)
+    allgods['usergods'] = usergods
+except:
+    pass
 
     
 def clr(lines=99):
@@ -82,6 +91,15 @@ def character(godtype):
 
 
 def menu():
+    global allgods
+
+    try:
+        with open('usergods', 'rb') as jar:
+            usergods = pickle.load(jar)
+        allgods['usergods'] = usergods
+    except:
+        usergods = {}
+
     clr()
     print("Choose your character type..\n")
     categories = list(allgods.keys())
@@ -106,6 +124,16 @@ def menu():
     if choose == 'u':
         god = input('Choose your character: ')
         description = input('Give a short description or extra notes: ')
+        savegod = (input('Save your character for future? (y/n) '))
+        if 'n' not in savegod.lower():
+            category = input('Enter category for your character: ')
+            if category not in usergods:
+                usergods[category] = {}
+            usergods[category][god] = description
+            with open('usergods', 'wb') as jar:
+                pickle.dump(usergods, jar)
+            allgods['usergods'][category][god] = description
+
         return chat(god, description)
     
     godtype = categories[int(choose)]
