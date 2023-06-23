@@ -84,13 +84,16 @@ def menu():
     clr()
     print("Choose your character type..\n")
     categories = list(allgods.keys())
-    choicemenu = {i: choice for i, choice in enumerate(categories)}
-    for i, category in choicemenu.items():
+    choicemenu = {}
+    for i, category in enumerate(categories):
+        choicemenu[i] = category
         print(i, category)
     print('r', 'random choice')
     print('u', 'unique choice')
     print('x', 'exit')
+    
     choose = input("\nEnter a choice: ")
+
     if choose == 'x':
         return bye
     
