@@ -10,14 +10,6 @@ Heart = True
 with open(".env") as key:
     openapi_key = key.readline().strip()
 
-
-try:
-    with open('usergods', 'rb') as jar:
-        usergods = pickle.load(jar)
-    allgods['usergods'] = usergods
-except:
-    pass
-
     
 def clr(lines=99):
     print("\n" * lines)
