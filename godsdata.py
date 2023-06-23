@@ -129,5 +129,71 @@ south_park = {
 },
     ),
 
+comics = dict(
+marvel = {
+    "Spider-Man": "A high school student named Peter Parker who gained spider-like abilities after being bitten by a radioactive spider.",
+    "Iron Man": "A billionaire industrialist and genius inventor who creates a powered suit of armor to save the world.",
+    "Captain America": "A World War II soldier who was given a super-soldier serum that gave him enhanced physical abilities.",
+    "Hulk": "A scientist named Bruce Banner who transforms into a giant, green, superhuman monster when he becomes angry or stressed.",
+    "Thor": "A god from Asgard who wields a mighty hammer and possesses incredible strength and durability.",
+    "Black Widow": "A highly trained spy and assassin who is a member of the Avengers.",
+    "Doctor Strange": "A brilliant but arrogant neurosurgeon who becomes a master of the mystic arts after a car accident leaves him unable to use his hands.",
+    "Wolverine": "A mutant with retractable claws and a healing factor, who is a member of the X-Men.",
+    "Deadpool": "A wisecracking mercenary with a healing factor and a penchant for breaking the fourth wall.",
+    "Black Panther": "The king of Wakanda, who possesses enhanced strength, agility, and senses, as well as an advanced suit made of vibranium."
+},
 
+dc = {
+    "Superman": "A superhero from the planet Krypton who possesses incredible strength, speed, and durability, as well as various sensory and vision powers.",
+    "Batman": "A billionaire playboy and philanthropist who uses his wealth, physical prowess, and detective skills to fight crime as the Dark Knight of Gotham City.",
+    "Wonder Woman": "An Amazon princess from the island of Themyscira who possesses superhuman strength, speed, and durability, as well as various weapons and abilities.",
+    "The Flash": "A forensic scientist named Barry Allen who gains the power of superhuman speed after being struck by lightning.",
+    "Green Lantern": "A member of an intergalactic police force called the Green Lantern Corps, who wields a ring that can create constructs of light.",
+    "Aquaman": "The king of Atlantis, who possesses superhuman strength, durability, and aquatic abilities.",
+    "Cyborg": "A former college athlete named Victor Stone who is transformed into a half-man, half-machine after a near-fatal accident.",
+    "Shazam": "A young boy named Billy Batson who is granted the power to transform into a superhero with the wisdom of Solomon, the strength of Hercules, the stamina of Atlas, the power of Zeus, the courage of Achilles, and the speed of Mercury.",
+    "Green Arrow": "A wealthy playboy and expert archer who fights crime as the Green Arrow.",
+    "Martian Manhunter": "An alien from Mars who possesses a wide array of superhuman abilities, including shapeshifting, telepathy, and invisibility."
+},
+
+image = {
+    "Spawn": "A former CIA agent named Al Simmons who is resurrected as a demonic creature with various supernatural powers.",
+    "Savage Dragon": "A green-skinned, fin-headed police officer with superhuman strength and regenerative abilities.",
+    "The Walking Dead": "A post-apocalyptic horror story about a group of survivors of a zombie outbreak.",
+    "Invincible": "A teenage superhero named Mark Grayson who inherits his powers from his alien father.",
+    "Chew": "A police detective named Tony Chu who gets psychic impressions from the things he eats.",
+    "Saga": "An epic space opera about two soldiers from opposite sides of a galactic war who fall in love and have a child together, and their struggles to protect their family from various threats.",
+    "Witchblade": "A supernatural artifact that can transform into a powerful weapon, and the various wielders who use it to fight evil.",
+    "Hack/Slash": "A horror-comedy series about a young woman named Cassie Hack who hunts down and kills slashers like Jason Voorhees and Freddy Krueger.",
+    "The Wicked + The Divine": "A story about a group of young people who discover that they are the reincarnated forms of various gods, and their struggles to deal with their newfound powers and responsibilities.",
+    "Monstress": "A dark fantasy story set in an alternate 1900s Asia, about a teenage girl who is half-human, half-monster, and her journey to uncover the secrets of her past."
+},
+
+vertigo = {
+    "Sandman": "A story about Dream of the Endless, one of seven beings who embody the fundamental concepts of existence, and his interactions with various mortal and immortal beings.",
+    "Preacher": "A story about a Texas preacher named Jesse Custer who gains the power to make anyone do what he says, and his quest to find God and hold him accountable for abandoning his creation.",
+    "Hellblazer": "A story about a chain-smoking, foul-mouthed British occult detective named John Constantine, who battles demons, angels, and other supernatural threats.",
+    "Y: The Last Man": "A post-apocalyptic story about a young man named Yorick Brown, who is the last surviving human with a Y chromosome, and his travels to find his girlfriend and figure out why he survived.",
+    "Fables": "A story about various fairy tale characters who have been exiled from their homelands and are living in a secret community in New York City, and their struggles to survive and deal with their pasts.",
+    "100 Bullets": "A story about a mysterious organization called the Trust that gives people who have been wronged a gun and 100 untraceable bullets, and their choices about whether to seek revenge or not.",
+    "Lucifer": "A story about the fallen angel Lucifer Morningstar, who abdicates his throne in Hell and opens a piano bar in Los Angeles, and his various interactions with mortals, immortals, and other beings.",
+    "Transmetropolitan": "A cyberpunk story about a journalist named Spider Jerusalem who returns to the city after a five-year hiatus to cover the presidential election, and his battles against corrupt politicians, corporations, and other forces.",
+    "Scalped": "A crime story set on a Native American reservation, about a young man named Dashiell Bad Horse who returns to the reservation after years away, and his involvement in various criminal activities and power struggles.",
+    "DMZ": "A story about a journalist named Matty Roth who is trapped in a war zone in Manhattan after a second American civil war, and his experiences covering the conflict and its aftermath."
+},
+
+dark_horse = {
+    "Hellboy": "A demon who was summoned to Earth by Nazis during World War II, but was rescued by a group of Allied soldiers and raised by a scientist, and his various adventures fighting supernatural threats.",
+    "Sin City": "A series of interconnected neo-noir stories set in Basin City, a corrupt and violent metropolis, and its various inhabitants.",
+    "Usagi Yojimbo": "A story about a ronin rabbit named Miyamoto Usagi who wanders feudal Japan, and his various encounters with samurai, ninja, and other characters.",
+    "The Umbrella Academy": "A story about a group of superpowered siblings who were adopted by an eccentric billionaire and raised to save the world, and their struggles to deal with their dysfunctional family and various threats.",
+    "B.P.R.D.": "A story about the Bureau for Paranormal Research and Defense, a secret government agency that investigates and fights supernatural threats, and its various agents.",
+    "The Goon": "A story about a muscle-bound enforcer named the Goon who protects his town from various supernatural threats, including zombies, giant squid, and evil clowns.",
+    "Aliens": "A series of stories set in the Alien universe, about various characters who encounter the titular creatures and other extraterrestrial threats.",
+    "Lobster Johnson": "A pulp-style story about a vigilante hero from the 1930s who fights crime and supernatural threats, and his various interactions with other characters.",
+    "Concrete": "A story about a man named Ron Lithgow who is transformed into a giant stone creature after a scientific experiment goes wrong, and his struggles to deal with his new body and his place in the world.",
+    "Barb Wire": "A story about a bounty hunter named Barbara Kopetski who operates in a dystopian America that is recovering from a second civil war, and her various adventures and romances."
+},
+
+),
 )
