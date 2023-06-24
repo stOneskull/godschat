@@ -87,6 +87,8 @@ def character(godtype):
 
 
 def usermade():
+    global allgods
+    
     god = input('Choose your character: ')
     description = input('Give a short description or extra notes: ')
     savegod = (input('Save your character for future? (y/n) '))
