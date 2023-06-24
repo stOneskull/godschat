@@ -1,4 +1,4 @@
-import pickle
+import json
 from random import choice as pick
 from simpleaichat import AIChat as ai
 from godsdata import allgods
@@ -81,18 +81,41 @@ def character(godtype):
 
     return chat(god, description)
 
+def usermade():
+    god = input('Choose your character: ')
+    description = input('Give a short description or extra notes: ')
+    savegod = (input('Save your character for future? (y/n) '))
+    if 'n' not in savegod.lower():
+        #updategods()
+        usergods = allgods['usergods']
+        category = input('Enter category for your character: ')
+        if category not in usergods:
+            usergods[category] = {}
+        usergods[category][god] = description
+        with open('usergods.json', 'w') as jar:
+            json.dump(usergods, jar)
+        allgods['usergods'] = usergods
 
-def menu():
+    return chat(god, description)
+
+
+def updategods():
     global allgods
 
     try:
-        with open('usergods', 'rb') as jar:
-            usergods = pickle.load(jar)
-        allgods['usergods'] = usergods
+        with open('usergods.json', 'r') as jar:
+            usergods = json.load(jar)
+        print('read')
     except:
         usergods = {}
+        print('not read')
 
+    allgods['usergods'] = usergods
+
+
+def menu():
     clr()
+    updategods()
     print("Choose your character type..\n")
     categories = list(allgods.keys())
     for i, category in enumerate(categories):
@@ -114,19 +137,8 @@ def menu():
         return chat(god, description)
 
     if choose == 'u':
-        god = input('Choose your character: ')
-        description = input('Give a short description or extra notes: ')
-        savegod = (input('Save your character for future? (y/n) '))
-        if 'n' not in savegod.lower():
-            category = input('Enter category for your character: ')
-            if category not in usergods:
-                usergods[category] = {}
-            usergods[category][god] = description
-            with open('usergods', 'wb') as jar:
-                pickle.dump(usergods, jar)
-            allgods['usergods'][category][god] = description
-
-        return chat(god, description)
+        return usermade
+        
     
     godtype = categories[int(choose)]
     return character(godtype)
