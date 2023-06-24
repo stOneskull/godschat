@@ -30,12 +30,15 @@ def chat(god, description):
     chatz = ai(god, description, api_key=openapi_key, console=not logging)
     if not logging:
         return chatz
+    
     print('Type "quitz" to exit chat..\n\n\n')
     response = chatz('hi')
     pretty = f"{god}: {response}\n"
     print(pretty)
+
     with open('session', 'r') as session:
         i = session.readline().strip()
+
     with open('log.txt', 'a') as logger:
         logger.write(f'START SESSION {i}\n')
         logger.write(pretty)
@@ -45,9 +48,11 @@ def chat(god, description):
         response = chatz(prompt)
         pretty = f"{god}: {response}\n"
         print(pretty)
+
         with open('log.txt', 'a') as logger:
             logger.write(f'YOU: {prompt}\n')
             logger.write(pretty)
+
         if 'quitz' in prompt.lower():
             with open('log.txt', 'a') as logger:
                 logger.write('\n\n')
@@ -113,8 +118,11 @@ def updategods():
 def menu():
     clr()
     updategods()
+
     print("Choose your character type..\n")
+
     categories = list(allgods.keys())
+
     for i, category in enumerate(categories):
         print(i, category)
     print('r', 'random choice')
@@ -144,8 +152,8 @@ def setup():
     global logging
     clr()
 
-    saving = input('Would you like to save your session text? (y/n) : ')
-    logging = False if 'n' in saving.lower() else True
+    logging = False if 'n' in input(
+        'save your session text? (y/n) : ').lower() else True
 
     if logging:
         try:
