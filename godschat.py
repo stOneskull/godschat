@@ -144,15 +144,15 @@ def menu():
     if choose == 'x':
         return bye
     
+    if choose == 'u':
+        return usermade
+    
     if choose == 'r':
         godtype = pick(categories)
         civtype = pick(list(allgods[godtype].keys()))
         god = pick(list(allgods[godtype][civtype].keys()))
         description = allgods[godtype][civtype][god]
         return chat(god, description)
-
-    if choose == 'u':
-        return usermade
     
     godtype = categories[int(choose)]
     return character(godtype)
