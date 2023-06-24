@@ -14,4 +14,4 @@ done! have fun!
 
 ps. i used the chat to generate the data dictionaries :P easy to add to it!
 
-pps. i recommend making a virtual environment for chatting with conda or venv
+pps. i recommend making a virtual environment for the chatz, with conda or venv
