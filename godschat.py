@@ -32,6 +32,7 @@ def chat(god, description):
         return chatz
     
     print('Type "quitz" to exit chat..\n\n\n')
+    
     response = chatz('hi')
     pretty = f"{god}: {response}\n"
     print(pretty)
@@ -96,7 +97,7 @@ def usermade():
 
     if 'n' not in savegod.lower():
         usergods = allgods['usergods']
-        
+
         category = input('Enter category for your character: ')
 
         if category not in usergods:
