@@ -77,16 +77,15 @@ def character(godtype):
     godnum = int(input("\nEnter number: "))
     god = civgods[godnum]
     description = allgods[godtype][civ][god]
-    #print(f"\nOk, let's talk to {god}, {description}")
 
     return chat(god, description)
+
 
 def usermade():
     god = input('Choose your character: ')
     description = input('Give a short description or extra notes: ')
     savegod = (input('Save your character for future? (y/n) '))
     if 'n' not in savegod.lower():
-        #updategods()
         usergods = allgods['usergods']
         category = input('Enter category for your character: ')
         if category not in usergods:
