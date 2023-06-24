@@ -135,7 +135,6 @@ def menu():
 
     if choose == 'u':
         return usermade
-        
     
     godtype = categories[int(choose)]
     return character(godtype)
