@@ -105,10 +105,8 @@ def updategods():
     try:
         with open('usergods.json', 'r') as jar:
             usergods = json.load(jar)
-        print('read')
     except:
         usergods = {}
-        print('not read')
 
     allgods['usergods'] = usergods
 
