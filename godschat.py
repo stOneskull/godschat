@@ -88,18 +88,25 @@ def character(godtype):
 
 def usermade():
     global allgods
-    
+
     god = input('Choose your character: ')
     description = input('Give a short description or extra notes: ')
+
     savegod = (input('Save your character for future? (y/n) '))
+
     if 'n' not in savegod.lower():
         usergods = allgods['usergods']
+        
         category = input('Enter category for your character: ')
+
         if category not in usergods:
             usergods[category] = {}
+
         usergods[category][god] = description
+
         with open('usergods.json', 'w') as jar:
             json.dump(usergods, jar)
+
         allgods['usergods'] = usergods
 
     return chat(god, description)
