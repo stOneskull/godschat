@@ -43,8 +43,10 @@ def logwork():
     <b>rowse for god
     <e>nter god
     ''')
+
     if 'e' in input('? ').lower():
         findgod = input("make god log of who? ")
+
     else:
         categories = list(allgods.keys())
 
@@ -58,26 +60,32 @@ def logwork():
         
     sessions = {}
 
-    temp_list = []
-    split_list = []
+    temp = []
+    split = []
+
     for line in loglist:
         if 'START SESSION' in line:
-            if temp_list:
-                split_list.append(temp_list)
-                temp_list = []
-        temp_list.append(line)
-    if temp_list:
-        split_list.append(temp_list)
+            if temp:
+                split.append(temp)
+                temp = []
+                
+        temp.append(line)
 
-    for eachlist in split_list:
+    if temp:
+        split.append(temp)
+
+    for eachlist in split:
         session = eachlist[0].rstrip()
         firstline = eachlist[1]
         god = firstline.split(':')[0]
+
         if god not in sessions:
             sessions[god] = {}
+
         sessions[god][session] = eachlist
 
     goddict = sessions[findgod]
+
     with open(findgod+'.txt', 'w') as godlog:
         for entry in goddict:
             for line in goddict[entry]:
