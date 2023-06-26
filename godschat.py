@@ -1,7 +1,9 @@
 import json
-from random import choice as pick
+from random import choice
 from time import sleep
+
 from simpleaichat import AIChat as ai
+
 from godsdata import allgods
 
 
@@ -68,7 +70,7 @@ def logwork():
             if temp:
                 split.append(temp)
                 temp = []
-                
+
         temp.append(line)
 
     if temp:
@@ -229,9 +231,9 @@ def menu():
         return usermade
     
     if choose == 'r':
-        godtype = pick(categories)
-        civtype = pick(list(allgods[godtype].keys()))
-        god = pick(list(allgods[godtype][civtype].keys()))
+        godtype = choice(categories)
+        civtype = choice(list(allgods[godtype].keys()))
+        god = choice(list(allgods[godtype][civtype].keys()))
         description = allgods[godtype][civtype][god]
         return chat(god, description)
     
