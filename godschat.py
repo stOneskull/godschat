@@ -236,9 +236,8 @@ def setup():
     global logging
     clr()
 
-    logging = False if 'n' in input(
-        "save your session text? (y/n) : "
-        ).lower() else True
+    logging = not 'n' in input(
+        "save your session text? (y/n) : ").lower()
 
     if logging:
         try:
