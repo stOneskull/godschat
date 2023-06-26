@@ -142,9 +142,9 @@ def updategods():
 
 
 def search():
-    clr()
     updategods()
-
+    clr()
+    
     print("Choose your character type..\n")
 
     categories = list(allgods.keys())
@@ -207,6 +207,7 @@ def usermade():
 
 
 def menu():
+    updategods()
     clr()
     print('c', 'choose god')
     print('r', 'random choice')
