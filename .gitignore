@@ -1,6 +1,6 @@
 .env
 .vscode
-log.txt
+*.txt
 session
 __pycache__
 editing.py 

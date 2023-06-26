@@ -1,16 +1,23 @@
 import json
 from random import choice as pick
+from time import sleep
 from simpleaichat import AIChat as ai
 from godsdata import allgods
 
 
-Heart = True
+# in the .env file is OPENAI_API_KEY=jfdlblahblahblahyourkeyjndgf23 
+with open(".env", 'r') as key:
+    for line in key.readlines():
+        if 'OPENAI_API_KEY' in line:
+            snip = line.split('OPENAI_API_KEY').pop()
+            openapi_key = snip.lstrip('=').rstrip()
 
 
-with open(".env") as key:
-    openapi_key = key.readline().strip()
 
-    
+Heart = True 
+
+
+
 def clr(lines=99):
     print("\n" * lines)
     
@@ -24,8 +31,66 @@ def bye():
     if 'q' in input('? ').lower():
         Heart = False
 
+#todo search and make specific log.. txt and json or or?
+def logwork():
+    try:
+        with open('log.txt', 'r') as logger:
+            loglist = logger.readlines()
+    except:
+        print('no saved log')
+        return menu
+
+    print('''
+    <b>rowse for god
+    <e>nter god
+    ''')
+    if 'e' in input('? ').lower():
+        findgod = input("make god log of who? ")
+    else:
+        categories = list(allgods.keys())
+
+        for i, category in enumerate(categories):
+            print(i, category)
+
+        choose = input("\nEnter a choice: ")
+        godtype = categories[int(choose)]
+
+        findgod = character(godtype, searching=True)
+        
+    sessions = {}
+
+    temp_list = []
+    split_list = []
+    for line in loglist:
+        if 'START SESSION' in line:
+            if temp_list:
+                split_list.append(temp_list)
+                temp_list = []
+        temp_list.append(line)
+    if temp_list:
+        split_list.append(temp_list)
+
+    for eachlist in split_list:
+        session = eachlist[0].rstrip()
+        firstline = eachlist[1]
+        god = firstline.split(':')[0]
+        if god not in sessions:
+            sessions[god] = {}
+        sessions[god][session] = eachlist
+
+    goddict = sessions[findgod]
+    with open(findgod+'.txt', 'w') as godlog:
+        for entry in goddict:
+            for line in goddict[entry]:
+                godlog.writelines(line)
+
+    print(f'log for {findgod} saved as {findgod}.txt')
+    sleep(2)
+    return menu
+
 
 def chat(god, description):
+    #todo add temperature
     clr()
     chatz = ai(god, description, api_key=openapi_key, console=not logging)
     if not logging:
@@ -58,9 +123,11 @@ def chat(god, description):
             with open('log.txt', 'a') as logger:
                 logger.write('\n\n')
             return bye
+        
+        #todo add savesession option
 
 
-def character(godtype):
+def character(godtype, searching=False):
     clr()
 
     print(f"\nWho is your choice of {godtype}..\n")
@@ -83,6 +150,9 @@ def character(godtype):
     godnum = int(input("\nEnter number: "))
     god = civgods[godnum]
     description = allgods[godtype][civ][god]
+
+    if searching:
+        return god
 
     return chat(god, description)
 
@@ -137,10 +207,14 @@ def menu():
         print(i, category)
     print('r', 'random choice')
     print('u', 'unique choice')
+    print('m', 'make god log')
     print('x', 'exit')
 
     choose = input("\nEnter a choice: ")
 
+    if choose == 'm':
+        return logwork
+    
     if choose == 'x':
         return bye
     
@@ -163,7 +237,8 @@ def setup():
     clr()
 
     logging = False if 'n' in input(
-        'save your session text? (y/n) : ').lower() else True
+        "save your session text? (y/n) : "
+        ).lower() else True
 
     if logging:
         try:
