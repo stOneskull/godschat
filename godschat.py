@@ -92,9 +92,24 @@ def logwork():
 
 
 def chat(god, description):
-    #todo add temperature
     clr()
-    chatz = ai(god, description, api_key=openapi_key, console=not logging)
+
+    temperature = round(float(
+        input('Enter creativity level from 0 to 10: ')))
+    
+    clr()
+    
+    if temperature:
+        temperature /= 10
+    
+    if temperature > 1:
+        temperature = 1
+
+    temperature = float(temperature)
+
+    params = {"temperature": temperature}
+
+    chatz = ai(god, description, params=params, api_key=openapi_key, console=not logging)
     if not logging:
         return chatz
     
@@ -144,7 +159,7 @@ def updategods():
 def search():
     updategods()
     clr()
-    
+
     print("Choose your character type..\n")
 
     categories = list(allgods.keys())

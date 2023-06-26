@@ -5,3 +5,4 @@ session
 __pycache__
 editing.py 
 usergods.json
+tests.py
