@@ -32,7 +32,7 @@ def bye():
     if 'q' in input('? ').lower():
         Heart = False
 
-#todo search and make specific log.. txt and json or or?
+
 def logwork():
     try:
         with open('log.txt', 'r') as logger:
@@ -50,41 +50,33 @@ def logwork():
         findgod = input("make god log of who? ")
 
     else:
-        categories = list(allgods.keys())
-
-        for i, category in enumerate(categories):
-            print(i, category)
-
-        choose = input("\nEnter a choice: ")
-        godtype = categories[int(choose)]
-
-        findgod = character(godtype, searching=True)
+        findgod, _ = search()
         
     sessions = {}
 
     temp = []
-    split = []
+    seshes = []
 
     for line in loglist:
         if 'START SESSION' in line:
             if temp:
-                split.append(temp)
+                seshes.append(temp)
                 temp = []
 
         temp.append(line)
 
     if temp:
-        split.append(temp)
+        seshes.append(temp)
 
-    for eachlist in split:
-        session = eachlist[0].rstrip()
-        firstline = eachlist[1]
+    for sesh in seshes:
+        session = sesh[0].rstrip()
+        firstline = sesh[1]
         god = firstline.split(':')[0]
 
         if god not in sessions:
             sessions[god] = {}
 
-        sessions[god][session] = eachlist
+        sessions[god][session] = sesh
 
     goddict = sessions[findgod]
 
@@ -95,6 +87,7 @@ def logwork():
 
     print(f'log for {findgod} saved as {findgod}.txt')
     sleep(2)
+
     return menu
 
 
@@ -136,8 +129,32 @@ def chat(god, description):
         #todo add savesession option
 
 
-def character(godtype, searching=False):
+def updategods():
+    global allgods
+
+    try:
+        with open('usergods.json', 'r') as jar:
+            usergods = json.load(jar)
+    except:
+        usergods = {}
+
+    allgods['usergods'] = usergods
+
+
+def search():
     clr()
+    updategods()
+
+    print("Choose your character type..\n")
+
+    categories = list(allgods.keys())
+
+    for i, godtype in enumerate(categories):
+        print(i, godtype)
+
+    choose = input('\nEnter number: ')
+
+    godtype = categories[int(choose)]
 
     print(f"\nWho is your choice of {godtype}..\n")
 
@@ -160,10 +177,7 @@ def character(godtype, searching=False):
     god = civgods[godnum]
     description = allgods[godtype][civ][god]
 
-    if searching:
-        return god
-
-    return chat(god, description)
+    return (god, description)
 
 
 def usermade():
@@ -192,28 +206,9 @@ def usermade():
     return chat(god, description)
 
 
-def updategods():
-    global allgods
-
-    try:
-        with open('usergods.json', 'r') as jar:
-            usergods = json.load(jar)
-    except:
-        usergods = {}
-
-    allgods['usergods'] = usergods
-
-
 def menu():
     clr()
-    updategods()
-
-    print("Choose your character type..\n")
-
-    categories = list(allgods.keys())
-
-    for i, category in enumerate(categories):
-        print(i, category)
+    print('c', 'choose god')
     print('r', 'random choice')
     print('u', 'unique choice')
     print('m', 'make god log')
@@ -231,15 +226,14 @@ def menu():
         return usermade
     
     if choose == 'r':
-        godtype = choice(categories)
+        godtype = choice(list(allgods.keys()))
         civtype = choice(list(allgods[godtype].keys()))
         god = choice(list(allgods[godtype][civtype].keys()))
         description = allgods[godtype][civtype][god]
         return chat(god, description)
     
-    godtype = categories[int(choose)]
-    return character(godtype)
-
+    return chat(*search())
+    
 
 def setup():
     global logging
