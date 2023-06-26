@@ -9,8 +9,7 @@ from godsdata import allgods
 with open(".env", 'r') as key:
     for line in key.readlines():
         if 'OPENAI_API_KEY' in line:
-            snip = line.split('OPENAI_API_KEY').pop()
-            openapi_key = snip.lstrip('=').rstrip()
+            openapi_key = line.split('OPENAI_API_KEY=').pop().strip()
 
 
 
