@@ -4,14 +4,30 @@ choose a character to talk to and save your sessions to a text file
 
 steps:
 
-1. get yourself an openai api key..
+1. get an openai account..https://platform.openai.com/
 
-2. once you have an openai account and are logged in, you can find the option for API keys in the Personal menu at the top-right of https://platform.openai.com/
+2. once you have an openai account and are logged in, you can find the option for API keys in the Personal menu at the top-right of the webpage
 
-3. get simpleaichat installed.. try it in your python terminal
+3. mkdir godschat
 
-done! have fun!
+cd godschat
 
-ps. i used the chat to generate the data dictionaries :P easy to add to it!
+python3 -m venv venv
+or: python -m venv venv
 
-pps. i recommend making a virtual environment for the chatz, with conda or venv
+source venv/bin/activate
+in Windows: venv\Scripts\activate
+
+pip install simpleaichat
+
+git clone https://github.com/stOneskull/godschat.git
+
+add a line to your ~/.bashrc file:
+export OPENAI_API_KEY=put_your_key_here
+
+in Windows: setx OPENAI_API_KEY put_your_key_here
+
+cd godschat
+python godschat.py
+
+deactivate

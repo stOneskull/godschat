@@ -1,3 +1,4 @@
+import os
 import json
 from random import choice
 from time import sleep
@@ -7,16 +8,10 @@ from simpleaichat import AIChat as ai
 from godsdata import allgods
 
 
-# in the .env file is OPENAI_API_KEY=jfdlblahblahblahyourkeyjndgf23 
-with open(".env", 'r') as key:
-    for line in key.readlines():
-        if 'OPENAI_API_KEY' in line:
-            openapi_key = line.split('OPENAI_API_KEY=').pop().strip()
-
+openapi_key = os.environ.get('OPENAI_API_KEY')
 
 
 Heart = True 
-
 
 
 def clr(lines=99):
