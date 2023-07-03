@@ -34,6 +34,7 @@ def logwork():
             loglist = logger.readlines()
     except:
         print('no saved log')
+        sleep(1)
         return menu
 
     print('''
@@ -49,24 +50,23 @@ def logwork():
         
     sessions = {}
 
-    temp = []
+    seshlines = []
     seshes = []
 
     for line in loglist:
         if 'START SESSION' in line:
-            if temp:
-                seshes.append(temp)
-                temp = []
+            if seshlines:
+                seshes.append(seshlines)
+                seshlines = []
 
-        temp.append(line)
+        seshlines.append(line)
 
-    if temp:
-        seshes.append(temp)
+    if seshlines:
+        seshes.append(seshlines)
 
     for sesh in seshes:
         session = sesh[0].rstrip()
-        firstline = sesh[1]
-        god = firstline.split(':')[0]
+        god = sesh[1].split(':')[0]
 
         if god not in sessions:
             sessions[god] = {}
@@ -86,13 +86,10 @@ def logwork():
     return menu
 
 
-def chat(god, description):
-    clr()
-
+def set_temperature():
     temperature = round(float(
-        input('Enter creativity level from 0 to 10: ')))
-    
-    clr()
+        input('\n\nEnter creativity level from 0 to 10: ')
+        ))
     
     if temperature:
         temperature /= 10
@@ -100,11 +97,21 @@ def chat(god, description):
     if temperature > 1:
         temperature = 1
 
-    temperature = float(temperature)
+    print(temperature)
+    sleep(1)
+    return float(temperature)
 
-    params = {"temperature": temperature}
 
-    chatz = ai(god, description, params=params, api_key=openapi_key, console=not logging)
+def chat(god, description):
+    clr()
+
+    params = {"temperature": set_temperature()}
+
+    chatz = ai(
+        god, description, params=params, 
+        api_key=openapi_key, console=not logging
+        )
+    
     if not logging:
         return chatz
     
