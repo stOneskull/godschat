@@ -8,7 +8,9 @@ steps:
 
 2. once you have an openai account and are logged in, you can find the option for API keys in the Personal menu at the top-right of the webpage
 
-3. mkdir godschat
+3. once you have an API key, make a folder for the chatz
+
+mkdir godschat
 
 cd godschat
 
