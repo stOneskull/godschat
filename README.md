@@ -16,18 +16,18 @@ python3 -m venv venv
 or: python -m venv venv
 
 source venv/bin/activate
-in Windows: venv\Scripts\activate
+Windows: venv\Scripts\activate
 
 pip install simpleaichat
 
 git clone https://github.com/stOneskull/godschat.git
 
-add a line to your ~/.bashrc file:
+add a line to your ~/.bashrc file: 
 export OPENAI_API_KEY=put_your_key_here
 
-in Windows: setx OPENAI_API_KEY put_your_key_here
+Windows: setx OPENAI_API_KEY put_your_key_here
 
-cd godschat
+cd godschat 
 python godschat.py
 
 deactivate
