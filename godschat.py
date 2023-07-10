@@ -146,7 +146,8 @@ def chat(god, description):
     params = {"temperature": set_temperature()}
 
     chatz = ai(
-        god, description, params=params, api_key=openapi_key, console=not logging
+        god, description, params=params, 
+        api_key=openapi_key, console=not logging
     )
 
     if not logging:
