@@ -188,8 +188,8 @@ def updategods():
     global allgods
 
     try:
-        with open("usergods.json", "r") as jar:
-            usergods = json.load(jar)
+        with open("usergods.json", "r") as gods:
+            usergods = json.load(gods)
     except:
         usergods = {}
 
@@ -252,8 +252,8 @@ def usermade():
 
         usergods[category][god] = description
 
-        with open("usergods.json", "w") as jar:
-            json.dump(usergods, jar)
+        with open("usergods.json", "w") as gods:
+            json.dump(usergods, gods)
 
         allgods["usergods"] = usergods
 
