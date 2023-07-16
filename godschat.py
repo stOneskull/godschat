@@ -320,7 +320,7 @@ def intro():
     return setup
 
 
-def bounce(boing):
+def bounce():
     while Heart is True:
         try:
             boing = boing()
@@ -329,4 +329,4 @@ def bounce(boing):
 
 
 if __name__ == "__main__":
-    bounce(intro)
+    bounce()
