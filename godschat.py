@@ -34,13 +34,13 @@ def getlog():
     try:
         with open("log.txt", "r") as logger:
             return logger.readlines()
-    except:
-        print("no saved log")
-        sleep(1)
+    except Exception as error:
+        print(f'error, baby: {error}')
+        sleep(2)
 
 
 def writelog(goddict, god):
-    with open(god + ".txt", "w") as godlog:
+    with open(f"{god}.txt", "w") as godlog:
         for entry in goddict[god]:
             for line in goddict[god][entry]:
                 godlog.writelines(line)
@@ -59,7 +59,7 @@ def make_sessions_dict(sessionslist, focus):
 
     for sessionlist in sessionslist:
         if focus:
-            focusedlist = [line for line in sessionlist if focus+':' in line]
+            focusedlist = [line for line in sessionlist if f'{focus}:' in line]
             focusedlist.append('\n')
             sessions[focus]['focus'].extend(focusedlist)
             continue
@@ -80,10 +80,9 @@ def make_sessions_list(loglist):
     sessionslist = []
 
     for line in loglist:
-        if "START SESSION" in line:
-            if sessionlines:
-                sessionslist.append(sessionlines)
-                sessionlines = []
+        if "START SESSION" in line and sessionlines:
+            sessionslist.append(sessionlines)
+            sessionlines = []
 
         sessionlines.append(line)
 
@@ -128,8 +127,11 @@ def set_temperature():
     try:
         temperature = round(float(
             input("\n\nEnter creativity level from 0 to 10: ")))
-    except:
-        temperature = 5
+    except Exception as error:
+        print(f'error, baby: {error}')
+        print('setting temperature to a nice 3')
+        sleep(3)
+        temperature = 3
 
     if temperature:
         temperature /= 10
@@ -190,7 +192,9 @@ def updategods():
     try:
         with open("usergods.json", "r") as gods:
             usergods = json.load(gods)
-    except:
+    except Exception:
+        print('creating..')
+        sleep(2)
         usergods = {}
 
     allgods["usergods"] = usergods
@@ -235,6 +239,22 @@ def search():
     return (god, description)
 
 
+def savegod(allgods, description, god):
+    usergods = allgods["usergods"]
+
+    category = input("Enter category for your character: ")
+
+    if category not in usergods:
+        usergods[category] = {}
+
+    usergods[category][god] = description
+
+    with open("usergods.json", "w") as gods:
+        json.dump(usergods, gods)
+
+    allgods["usergods"] = usergods
+
+
 def usermade():
     global allgods
 
@@ -243,20 +263,7 @@ def usermade():
     savegod = input("Save your character for future? (y/n) ")
 
     if "n" not in savegod.lower():
-        usergods = allgods["usergods"]
-
-        category = input("Enter category for your character: ")
-
-        if category not in usergods:
-            usergods[category] = {}
-
-        usergods[category][god] = description
-
-        with open("usergods.json", "w") as gods:
-            json.dump(usergods, gods)
-
-        allgods["usergods"] = usergods
-
+        savegod(allgods, description, god)
     return chat(god, description)
 
 
@@ -294,7 +301,7 @@ def setup():
     global logging
     clr()
 
-    logging = not "n" in input("save your session text? (y/n) : ").lower()
+    logging = "n" not in input("save your session text? (y/n) : ").lower()
 
     if logging:
         try:
@@ -303,7 +310,9 @@ def setup():
                 i = int(i) + 1
             with open("session", "w") as session:
                 session.write(str(i))
-        except:
+        except Exception as error:
+            print(f'error, baby: {error}')
+            sleep(2)
             with open("session", "w") as first:
                 first.write("1")
 
