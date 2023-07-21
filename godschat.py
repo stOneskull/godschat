@@ -324,7 +324,9 @@ def bounce():
     while Heart is True:
         try:
             boing = boing()
-        except:
+        except Exception as error:
+            print(f'error, baby: {error}')
+            sleep(2)
             boing = intro
 
 
