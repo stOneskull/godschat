@@ -260,9 +260,9 @@ def usermade():
 
     god = input("Choose your character: ")
     description = input("Give a short description or extra notes: ")
-    savegod = input("Save your character for future? (y/n) ")
+    savinggod = input("Save your character for future? (y/n) ")
 
-    if "n" not in savegod.lower():
+    if "n" not in savinggod.lower():
         savegod(allgods, description, god)
     return chat(god, description)
 
