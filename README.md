@@ -21,10 +21,10 @@ pip install simpleaichat
 git clone https://github.com/stOneskull/godschat.git
 
 
-Linux: add a line to your ~/.bashrc file:
+bash: add a line to your ~/.bashrc file:
     export OPENAI_API_KEY=put_your_key_here
 
-Windows: setx OPENAI_API_KEY put_your_key_here
+powershell: setx OPENAI_API_KEY put_your_key_here
 
 
 cd godschat 
