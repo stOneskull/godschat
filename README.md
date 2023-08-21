@@ -31,6 +31,4 @@ cd godschat
 
 python godschat.py
 
-
-deactivate
 ```
