@@ -12,6 +12,7 @@ choose a character to talk to and save your sessions to a text file
 - once you have an API key, make a folder for the chatz..
 
 ```
+
 pip install simpleaichat
 
 git clone https://github.com/stOneskull/godschat.git
