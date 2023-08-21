@@ -16,15 +16,10 @@ mkdir godschat
 
 cd godschat
 
-python3 -m venv venv
-or: python -m venv venv
-
-Linux: source venv/bin/activate
-Windows: venv\Scripts\activate
-
 pip install simpleaichat
 
 git clone https://github.com/stOneskull/godschat.git
+
 
 Linux: add a line to your ~/.bashrc file:
     export OPENAI_API_KEY=put_your_key_here
